@@ -1,66 +1,50 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './App.css';
 // Redux imports
 import {connect} from 'react-redux';
 // Router imports
-
+import {HashRouter as Router, Route, Link} from 'react-router-dom';
+// Components imports
+import Header from '../Header/Header';
+import Feeling from '../Feeling/Feeling';
+import Understanding from '../Understanding/Understanding';
+import Support from '../Support/Support';
+import Comments from '../Comments/Comments';
 
 class App extends Component {
-  state = {
-     rating: ''
-  }
-  handleChange = (event) => {
-    this.setState({
-      rating: event.target.value
-    })
-  }
-  handleSubmit = (event) => {
-    event.preventDefault();
-    console.log('in handle submit');
-    this.props.dispatch({type: 'SET_FEEDBACK'});
-  }
-  // setFeeling = () => {
-  //   this.props.dispatch({type: 'SET_FEELING', payload: this.state});  
+  // all input handleChange - when an input field has data send it to rating
+  // handleChange = (event) => {
+  //   this.setState({
+  //     rating: event.target.value
+  //   })
   // }
-  setUnderstanding = () => {
-    this.props.dispatch({type: 'SET_UNDERSTANDING', payload: this.state});
-  }
-  setSupport = () => {
-    this.props.dispatch({type: 'SET_SUPPORT', payload: this.state});
-  }
-  setComments = () => {
-    this.props.dispatch({type: 'SET_COMMENTS', payload: this.state});
-  }
+  // form handleClick - send all the feedback input fields to redux in a package
+  // handleClick = () => {
+  //   console.log('in handle submit');
+  //   this.props.dispatch({type: 'SENT_FEEDBACK'});
+  // }
+  // next button handleClick
+  // setFeedback = (setProperty) => {
+  //   this.props.dispatch({
+  //     type: 'SET_FEEDBACK',
+  //     payload: {
+  //       ...this.state,
+  //       propertyName: setProperty
+  //     } 
+  //   })
+  // }
   render() {
     return (
+      <Router>
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Feedback!</h1>
-          <h4><i>Don't forget it!</i></h4>
-        </header>
+        <Header />
         {JSON.stringify(this.props.reduxStore )}
-        <form onSubmit={this.handleSubmit}>
-          
-          <label>
-            How well are you understanding the content?
-            <input type="text" onChange={this.handleChange} name="understand" />
-            <button onClick={this.setUnderstanding}>Next</button>
-          </label>
-          <label>
-            How well are you being supported?
-            <input type="text" onChange={this.handleChange} name="support" />
-            <button onClick={this.setSupport}>Next</button>
-          </label>
-          <label>
-            Any comments you want to leave?
-            <textarea type="text" onChange={this.handleChange} name="comments"></textarea>
-            <button onClick={this.setComments}>Next</button>
-          </label>
-          <input type="submit" value="submit" />
-        </form>
-        <br />
+        <Feeling />
+        <Understanding />
+        <Support />
+        <Comments />
       </div>
+    </Router>
     );
   }
 }

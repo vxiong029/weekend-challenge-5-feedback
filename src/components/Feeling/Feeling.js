@@ -1,6 +1,15 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 
 class Feeling extends Component {
+  state = {
+    feeling: 0
+  }
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
   setFeeling = () => {
     this.props.dispatch({
       type: 'SET_FEELING',
@@ -11,13 +20,15 @@ class Feeling extends Component {
     return (
       <div>
         <label>
-            How are you feeling today?
-            <input type="text" onChange={this.handleChange} name="feeling" />
-            <button onClick={this.setFeeling}>Next</button>
-          </label>
+          How are you feeling today?
+          <input type="number" onChange={this.handleChange} name="feeling" />
+          <button onClick={this.setFeeling}>Next</button>
+        </label>
       </div>
     )
   }
 }
-
-export default Feeling;
+const mapStateToProps = reduxStore => ({
+  reduxStore
+})
+export default connect(mapStateToProps)(Feeling);

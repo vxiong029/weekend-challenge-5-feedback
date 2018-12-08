@@ -1,11 +1,34 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 
 class Comments extends Component {
+  state = {
+    comments: ''
+  }
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+  setComments = () => {
+    this.props.dispatch({
+      type: 'SET_COMMENTS',
+      payload: this.state
+    });
+  }
   render() {
     return (
-
+      <div>
+        <label>
+          Any comments you want to leave?
+          <textarea type="text" onChange={this.handleChange} name="comments"></textarea>
+          <button onClick={this.setComments}>Next</button>
+        </label>
+      </div>
     )
   }
 }
-
-export default Comments;
+const mapStateToProps = reduxStore => ({
+  reduxStore
+})
+export default connect(mapStateToProps)(Comments);
