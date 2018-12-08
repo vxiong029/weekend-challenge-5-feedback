@@ -8,20 +8,18 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import Logger from 'redux-logger';
 // REDUCERS
-const feedback = (state = {}, action) => {
-  switch (action.type) { 
+const feedback = (state = [], action) => {
+  switch (action.type) {
     case 'SET_FEELING':
-      return { ...state, feeling: action.payload.rating };
+      return [...state, action.payload];
     case 'SET_UNDERSTANDING':
-      return { ...state, understanding: action.payload.rating };
+      return [...state, action.payload];
     case 'SET_SUPPORT':
-      return {...state, support: action.payload.rating};
+      return [...state, action.payload];
     case 'SET_COMMENTS':
-      return {...state, comments: action.payload.rating};
-    case 'SET_FEEDBACK':
-      return state
-    default:
-      return state;
+      return [...state, action.payload];
+  default:
+    return state;
   }
 }
 // creates a REDUX STORE that holds the complete state "tree" of my APP
