@@ -9,9 +9,15 @@ import { Provider } from 'react-redux';
 import Logger from 'redux-logger';
 // REDUCERS
 const feedback = (state = {}, action) => {
-  switch (action.type) {
+  switch (action.type) { 
     case 'SET_FEELING':
-      return { feeling: action.payload.rating };
+      return { ...state, feeling: action.payload.rating };
+    case 'SET_UNDERSTANDING':
+      return { ...state, understanding: action.payload.rating };
+    case 'SET_SUPPORT':
+      return {...state, support: action.payload.rating};
+    case 'SET_COMMENTS':
+      return {...state, comments: action.payload.rating};
     default:
       return state;
   }
