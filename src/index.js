@@ -18,6 +18,8 @@ const feedback = (state = {}, action) => {
       return {...state, support: action.payload.rating};
     case 'SET_COMMENTS':
       return {...state, comments: action.payload.rating};
+    case 'SET_FEEDBACK':
+      return state
     default:
       return state;
   }
