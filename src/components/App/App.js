@@ -3,7 +3,7 @@ import './App.css';
 // Redux imports
 import {connect} from 'react-redux';
 // Router imports
-import {HashRouter as Router, Route, Link} from 'react-router-dom';
+import {HashRouter as Router, Route} from 'react-router-dom';
 // Components imports
 import Header from '../Header/Header';
 import Feeling from '../Feeling/Feeling';
@@ -39,10 +39,10 @@ class App extends Component {
       <div className="App">
         <Header />
         {JSON.stringify(this.props.reduxStore )}
-        <Feeling />
-        <Understanding />
-        <Support />
-        <Comments />
+        <Route exact path="/" component={Feeling} />
+        <Route path="/2" component={Understanding}></Route> 
+        <Route path="/3" component={Support}></Route>
+        <Route path="/4" component={Comments}></Route>
       </div>
     </Router>
     );

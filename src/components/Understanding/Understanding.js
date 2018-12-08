@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 class Understanding extends Component {
+  // set state
   state = {
     understanding: 0
   }
@@ -15,6 +16,8 @@ class Understanding extends Component {
       type: 'SET_UNDERSTANDING',
       payload: this.state
     });
+    // pushes the user to next page 
+    this.props.history.push('/3');
   }
   render() {
     return (

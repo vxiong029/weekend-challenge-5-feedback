@@ -15,6 +15,8 @@ class Comments extends Component {
       type: 'SET_COMMENTS',
       payload: this.state
     });
+    // pushes the user to next page 
+    this.props.history.push('/');
   }
   render() {
     return (

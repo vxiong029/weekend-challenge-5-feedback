@@ -15,6 +15,8 @@ class Support extends Component {
       type: 'SET_SUPPORT',
       payload: this.state
     });
+    // pushes the user to next page 
+    this.props.history.push('/4');
   }
   render() {
     return (
