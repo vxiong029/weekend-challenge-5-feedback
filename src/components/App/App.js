@@ -40,7 +40,6 @@ class App extends Component {
           </label>
           <input type="submit" value="submit" />
         </form>
-        <br />
       </div>
     );
   }
