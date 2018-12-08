@@ -3,6 +3,8 @@ import axios from 'axios';
 import './App.css';
 // Redux imports
 import {connect} from 'react-redux';
+// Router imports
+
 
 class App extends Component {
   state = {
@@ -18,9 +20,9 @@ class App extends Component {
     console.log('in handle submit');
     this.props.dispatch({type: 'SET_FEEDBACK'});
   }
-  setFeeling = () => {
-    this.props.dispatch({type: 'SET_FEELING', payload: this.state});  
-  }
+  // setFeeling = () => {
+  //   this.props.dispatch({type: 'SET_FEELING', payload: this.state});  
+  // }
   setUnderstanding = () => {
     this.props.dispatch({type: 'SET_UNDERSTANDING', payload: this.state});
   }
@@ -39,11 +41,7 @@ class App extends Component {
         </header>
         {JSON.stringify(this.props.reduxStore )}
         <form onSubmit={this.handleSubmit}>
-          <label>
-            How are you feeling today?
-            <input type="text" onChange={this.handleChange} name="feeling" />
-            <button onClick={this.setFeeling}>Next</button>
-          </label>
+          
           <label>
             How well are you understanding the content?
             <input type="text" onChange={this.handleChange} name="understand" />
