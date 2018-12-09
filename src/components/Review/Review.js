@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import axios from 'axios';
+// Route imports
+import {withRouter} from 'react-router-dom';
+// Styling imports
+import Typography from '@material-ui/core/Typography';
 
 class Review extends Component {
   // all feedback must be filled
@@ -22,23 +26,27 @@ class Review extends Component {
       }).catch(error => {
         console.log('error in submitHandle', error);
       })
-    // push to submit page component
-    // this.props.history.push('/5');
+    // push to submit page component - needs withRouter 
+    this.props.history.push('/5');
   }
   render() {
       let feedbackAnswers = this.props.reduxStore.feedback;
     return (
-      <div>
-        <h2>Your Feedback</h2>
+      <div className="review">
+        <Typography variant="h4">Review</Typography>
+          Take a look at your answers
+          <fieldset className="rating">
+          <legend>Overview:</legend>
           <p>Feeling: {feedbackAnswers.feeling}</p>
           <p>Understanding: {feedbackAnswers.understanding}</p>
           <p>Support: {feedbackAnswers.support}</p>
           <p>Comments: {feedbackAnswers.comments}</p>
-          {this.feedbackComplete() && <h3>
+          {this.feedbackComplete() && <h4>
             You've completed the form, please submit!
-          </h3>}
+          </h4>}
           <button onClick={() => this.submitHandle(this.props.reduxStore.feedback)}
             disabled={!this.feedbackComplete()}>Submit</button>
+          </fieldset>
       </div>
     )
   }
@@ -46,4 +54,4 @@ class Review extends Component {
 const mapStateToProps = reduxStore => ({
   reduxStore
 })
-export default connect(mapStateToProps)(Review);
+export default withRouter(connect(mapStateToProps)(Review));

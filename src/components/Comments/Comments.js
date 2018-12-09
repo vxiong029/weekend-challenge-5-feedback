@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+// Styling imports
+import Typography from '@material-ui/core/Typography';
 
 class Comments extends Component {
   state = {
@@ -21,10 +23,14 @@ class Comments extends Component {
   render() {
     return (
       <div>
+        <Typography variant="h4">Comments</Typography>
         <label>
           Any comments you want to leave?
-          <textarea type="text" onChange={this.handleChange} name="comments"></textarea>
-          <button onClick={this.setComments}>Next</button>
+          <fieldset className="rating">
+            <legend>Comments:</legend>
+              <textarea type="text" onChange={this.handleChange} name="comments" className="textarea"></textarea>
+            <button onClick={this.setComments}>Done</button>
+          </fieldset>
         </label>
       </div>
     )

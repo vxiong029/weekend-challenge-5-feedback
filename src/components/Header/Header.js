@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
+// Styling imports
+import Typography from '@material-ui/core/Typography';
 
 class Header extends Component {
   render() {
     return (
-        <header className="App-header">
-          <h1 className="App-title">Feedback!</h1>
-          <h4><i>Don't forget it!</i></h4>
+        <header className="App-header" color="primary">
+          <Typography variant="h2" gutterBottom>Feedback</Typography>
+          <Typography variant="h6" gutterBottom>Don't forget it!</Typography>
         </header>
     )
   }
