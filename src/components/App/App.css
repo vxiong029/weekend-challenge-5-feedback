@@ -1,38 +1,55 @@
+body {
+  background-color: #f2f2f2;
+}
+
 .App {
-  margin: 0 auto;
+  float: right;
   padding: 10px;
   text-align: center;
-  width: 60%;
-}
-
-.App-header {
-  background-color: #80d8ff;
-  border-top: 20px solid #5997b2;
-  min-height: 70px;
-  padding: 20px;
-  color: black;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-.review {
-  float: left;
   width: 40%;
 }
 
+.App-header {
+  background-color: #f44336;
+  border-top: 20px solid #aa2e25;
+  max-height: 50px;
+  padding: 20px;
+}
+
+.container {
+  padding: 10px;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .feedback-form {
-  float: right;
+  margin: 0 auto;
   width: 60%;
 }
 
+.review-container {
+  padding: 35px;
+  text-align: center;
+  width: 26%;
+}
+
+.review-header {
+  border-top: 22px solid #aa2e25;
+  max-height: 20px;
+  padding: 20px;
+}
+
+.review {
+  margin: 0 auto;
+  padding: 15px;
+  width: 70%;
+}
+
 .rating {
-  height: 350px;
+  border: 1px solid #cccccc;
+  height: 290px;
 }
 
 .textarea {

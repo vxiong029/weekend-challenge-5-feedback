@@ -23,7 +23,7 @@ class Support extends Component {
   render() {
     return (
       <div>
-        <Typography variant="h4">Comments</Typography>
+        <Typography variant="h4">Support</Typography>
         <label>
         How well are you being supported?
         <fieldset className="rating">
