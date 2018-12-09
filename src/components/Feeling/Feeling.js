@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 class Feeling extends Component {
   // set state to feeling
   state = {
-    feeling: '5'
+    feeling: 0
   }
   // when input field has data
   handleChange = (event) => {

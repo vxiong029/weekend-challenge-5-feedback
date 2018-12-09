@@ -3,18 +3,15 @@ import {connect} from 'react-redux';
 import axios from 'axios';
 
 class Review extends Component {
-  // if any input is skipped cannot POST
-  completeForm = () => {
-    let feedbackAnswers = this.props.reduxStore.feedback;
-    if( (feedbackAnswers.feeling > '0') || 
-      (feedbackAnswers.understanding > '0') || 
-      (feedbackAnswers.support > '0') || 
-      (feedbackAnswers.comments !== '') 
-      ) {
-        return <button disabled>Incomplete Form</button>
-      } else {
-        return <button onClick={() => this.submitHandle(this.props.reduxStore.feedback)}>Submit</button>
-      }
+  // all feedback must be filled
+  feedbackComplete = () => {
+    const feedbackAnswers = this.props.reduxStore.feedback;
+    return (feedbackAnswers.feeling > 0 
+      && feedbackAnswers.understanding > 0 
+      && feedbackAnswers.support > 0 
+      && feedbackAnswers.comments !== '' 
+      && feedbackAnswers.comments !== undefined
+    );
   }
   // POST to SERVER SIDE
   submitHandle = (answer) => {
@@ -26,7 +23,7 @@ class Review extends Component {
         console.log('error in submitHandle', error);
       })
     // push to submit page component
-    this.props.history.push('/5');
+    // this.props.history.push('/5');
   }
   render() {
       let feedbackAnswers = this.props.reduxStore.feedback;
@@ -37,8 +34,11 @@ class Review extends Component {
           <p>Understanding: {feedbackAnswers.understanding}</p>
           <p>Support: {feedbackAnswers.support}</p>
           <p>Comments: {feedbackAnswers.comments}</p>
-        {this.completeForm()}
-        {/* <button onClick={() => this.submitHandle(this.props.reduxStore.feedback)}>Submit</button> */}
+          {this.feedbackComplete() && <h3>
+            You've completed the form, please submit!
+          </h3>}
+          <button onClick={() => this.submitHandle(this.props.reduxStore.feedback)}
+            disabled={!this.feedbackComplete()}>Submit</button>
       </div>
     )
   }
