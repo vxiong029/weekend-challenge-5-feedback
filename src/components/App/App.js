@@ -10,39 +10,21 @@ import Feeling from '../Feeling/Feeling';
 import Understanding from '../Understanding/Understanding';
 import Support from '../Support/Support';
 import Comments from '../Comments/Comments';
+import Submit from '../Submit/Submit';
 
 class App extends Component {
-  // all input handleChange - when an input field has data send it to rating
-  // handleChange = (event) => {
-  //   this.setState({
-  //     rating: event.target.value
-  //   })
-  // }
-  // form handleClick - send all the feedback input fields to redux in a package
-  // handleClick = () => {
-  //   console.log('in handle submit');
-  //   this.props.dispatch({type: 'SENT_FEEDBACK'});
-  // }
-  // next button handleClick
-  // setFeedback = (setProperty) => {
-  //   this.props.dispatch({
-  //     type: 'SET_FEEDBACK',
-  //     payload: {
-  //       ...this.state,
-  //       propertyName: setProperty
-  //     } 
-  //   })
-  // }
   render() {
     return (
       <Router>
       <div className="App">
         <Header />
         {JSON.stringify(this.props.reduxStore )}
+        <br />
         <Route exact path="/" component={Feeling} />
         <Route path="/2" component={Understanding}></Route> 
         <Route path="/3" component={Support}></Route>
         <Route path="/4" component={Comments}></Route>
+        <Route path="/5" component={Submit}></Route>
       </div>
     </Router>
     );
