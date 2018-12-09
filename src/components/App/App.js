@@ -11,6 +11,7 @@ import Understanding from '../Understanding/Understanding';
 import Support from '../Support/Support';
 import Comments from '../Comments/Comments';
 import Submit from '../Submit/Submit';
+import Review from '../Review/Review';
 
 class App extends Component {
   render() {
@@ -18,8 +19,7 @@ class App extends Component {
       <Router>
       <div className="App">
         <Header />
-        {JSON.stringify(this.props.reduxStore )}
-        <br />
+        <Review />
         <Route exact path="/" component={Feeling} />
         <Route path="/2" component={Understanding}></Route> 
         <Route path="/3" component={Support}></Route>

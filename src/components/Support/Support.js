@@ -22,28 +22,28 @@ class Support extends Component {
     return (
       <label>
         How well are you being supported?
-        <fieldset class="rating">
+        <fieldset className="rating">
             <legend>Please rate:</legend>
             <input type="radio" id="star5" name="support" value="5" 
               onChange={this.handleChange}
               checked={this.state.support === '5'} />
-                <label for="star5" title="Rocks!">5 stars</label>
+                <label title="Rocks!">5 stars</label>
             <input type="radio" id="star4" name="support" value="4" 
               onChange={this.handleChange}
               checked={this.state.support === '4'} />
-                <label for="star4" title="Pretty good">4 stars</label>
+                <label title="Pretty good">4 stars</label>
             <input type="radio" id="star3" name="support" value="3" 
               onChange={this.handleChange}
               checked={this.state.support === '3'} />
-                <label for="star3" title="Meh">3 stars</label>
+                <label title="Meh">3 stars</label>
             <input type="radio" id="star2" name="support" value="2" 
               onChange={this.handleChange}
               checked={this.state.support === '2'} />
-              <label for="star2" title="Kinda bad">2 stars</label>
+              <label title="Kinda bad">2 stars</label>
             <input type="radio" id="star1" name="support" value="1" 
               onChange={this.handleChange}
               checked={this.state.support === '1'} />
-              <label for="star1" title="Sucks big time">1 star</label>
+              <label title="Sucks big time">1 star</label>
           </fieldset>
         <button onClick={this.setSupport}>Next</button>
       </label>
