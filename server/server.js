@@ -12,24 +12,20 @@ app.use(bodyParser.urlencoded({
 app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
+
 // POST new feedback
 app.post('/submit', async (req, res) => {
 	// hold all the data in a var
 	const feedbackAnswers = req.body;
-	console.log('in server post feeling', feedbackAnswers.feeling);
-	console.log('in server post understanding', feedbackAnswers.understanding);
-	console.log('in server post support', feedbackAnswers.support);
-	console.log('in server post comments', feedbackAnswers.comments);
 	// hold sql insert text in a var
-	const queryTxt = `INSERT INTO "feedback" 
-		("feeling", "understanding", "support", "comments")
-    VALUES ($1, $2, $3, $4,);`;
+	const queryTxt = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments") 
+		VALUES ($1, $2, $3, $4);`;
 	// post into sql
 	pool.query(queryTxt, [feedbackAnswers.feeling, feedbackAnswers.understanding,
 		feedbackAnswers.support, feedbackAnswers.comments])
 			.then(result => {
 			// send back the results
-			res.sendStatus(201);
+			res.sendStatus(204);
 			}).catch(error => {
 				res.sendStatus(500);
 	})
