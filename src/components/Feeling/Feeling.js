@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 // Styling imports
 import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 
 class Feeling extends Component {
   // set state to feeling
@@ -61,7 +62,7 @@ class Feeling extends Component {
                   checked={this.state.feeling === '1'} />
                   <label title="Sucks big time">1 star</label>
               </p>
-            <button onClick={this.setFeeling}>Next</button>
+            <Button onClick={this.setFeeling}>Next</Button>
           </fieldset>
         </label>
       </div>

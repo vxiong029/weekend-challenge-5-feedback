@@ -18,6 +18,8 @@ const feedback = (state = {}, action) => {
       return {...state, ...action.payload};
     case 'SET_COMMENTS':
       return {...state, ...action.payload};
+    case 'RESET_FEEDBACK':
+      return {};
   default:
     return state;
   }

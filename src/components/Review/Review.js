@@ -4,6 +4,7 @@ import axios from 'axios';
 // Route imports
 import {withRouter} from 'react-router-dom';
 // Styling imports
+import Button from '@material-ui/core/Button';
 
 
 class Review extends Component {
@@ -33,19 +34,18 @@ class Review extends Component {
       let feedbackAnswers = this.props.reduxStore.feedback;
     return (
       <div className="review">
-          Take a look at your answers
-          <fieldset className="rating">
+        <fieldset className="rating">
           <legend>Overview:</legend>
-          <p>Feeling: {feedbackAnswers.feeling}</p>
-          <p>Understanding: {feedbackAnswers.understanding}</p>
-          <p>Support: {feedbackAnswers.support}</p>
-          <p>Comments: {feedbackAnswers.comments}</p>
+            <p>Feeling: {feedbackAnswers.feeling}</p>
+            <p>Understanding: {feedbackAnswers.understanding}</p>
+            <p>Support: {feedbackAnswers.support}</p>
+            <p>Comments: {feedbackAnswers.comments}</p>
           {this.feedbackComplete() && <h4>
             You've completed the form, please submit!
-          </h4>}
-          <button onClick={() => this.submitHandle(this.props.reduxStore.feedback)}
-            disabled={!this.feedbackComplete()}>Submit</button>
-          </fieldset>
+            </h4>}
+          <Button onClick={() => this.submitHandle(this.props.reduxStore.feedback)}
+            disabled={!this.feedbackComplete()}>Submit</Button>
+        </fieldset>
       </div>
     )
   }

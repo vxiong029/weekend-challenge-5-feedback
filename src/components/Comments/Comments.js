@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 // Styling imports
 import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 
 class Comments extends Component {
   state = {
@@ -27,9 +28,9 @@ class Comments extends Component {
         <label>
           Any comments you want to leave?
           <fieldset className="rating">
-            <legend>Comments:</legend>
+            <legend>Comment:</legend>
               <textarea type="text" onChange={this.handleChange} name="comments" className="textarea"></textarea>
-            <button onClick={this.setComments}>Done</button>
+            <Button onClick={this.setComments}>Done</Button>
           </fieldset>
         </label>
       </div>

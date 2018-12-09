@@ -25,28 +25,28 @@ class App extends Component {
       <Router>
         <div className="container">
           <div className="review-container">
-          <Card>
-            <header className="review-header">
-              <Typography variant="h4">Review</Typography>
-            </header>
-            <Review />
-          </Card>
+            <Card>
+              <header className="review-header">
+                <Typography variant="h4">Review</Typography>
+              </header>
+              <Review />
+            </Card>
           </div>
-        <div className="App">
-          <Card>
-          <Header />
+          <div className="App">
+            <Card>
+              <Header />
           {/* <Progress /> */}
-          <CardContent>
-          <div className="feedback-form">
-            <Route exact path="/" component={Feeling} />
-            <Route path="/2" component={Understanding}></Route> 
-            <Route path="/3" component={Support}></Route>
-            <Route path="/4" component={Comments}></Route>
-            <Route path="/5" component={Submit}></Route>
+              <CardContent>
+                <div className="feedback-form">
+                  <Route exact path="/" component={Feeling} />
+                  <Route path="/2" component={Understanding}></Route> 
+                  <Route path="/3" component={Support}></Route>
+                  <Route path="/4" component={Comments}></Route>
+                  <Route path="/5" component={Submit}></Route>
+                </div>
+              </CardContent>
+            </Card> 
           </div>
-          </CardContent>
-          </Card>
-        </div>
         </div>
       </Router>
     );
