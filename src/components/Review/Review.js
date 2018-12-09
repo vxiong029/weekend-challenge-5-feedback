@@ -4,7 +4,7 @@ import axios from 'axios';
 // Route imports
 import {withRouter} from 'react-router-dom';
 // Styling imports
-import Typography from '@material-ui/core/Typography';
+
 
 class Review extends Component {
   // all feedback must be filled
@@ -33,7 +33,6 @@ class Review extends Component {
       let feedbackAnswers = this.props.reduxStore.feedback;
     return (
       <div className="review">
-        <Typography variant="h4">Review</Typography>
           Take a look at your answers
           <fieldset className="rating">
           <legend>Overview:</legend>
