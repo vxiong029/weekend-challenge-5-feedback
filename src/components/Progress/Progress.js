@@ -1,23 +1,37 @@
 import React, {Component} from 'react';
-// import ProgressBar from 'react-bootstrap/lib/ProgressBar';
+// Route imports
+import {withRouter} from 'react-router-dom';
+// Styling import
+import Typography from '@material-ui/core/Typography';
 
 class Progress extends Component{
   render() {
-    let pages = 4;
-    let {step} = this.props;
-    console.log('progress bar:', this.props);
-    
+    let pages;
+    switch (this.props.history.location.pathname) {
+      case '/':
+        pages = 1;
+        break;
+      case '/2':
+        pages = 2;
+        break;
+      case '/3':
+        pages = 3;
+        break;
+      case '/4':
+        pages = 4;
+        break;
+      case '/5':
+        pages = 5;
+        break;
+      default:
+        return pages;
+    }
     return (
-      <div className="progressHdr">
-                <h3>Page {step} of {pages}</h3>
-                {/* <ProgressBar
-                    style={ { width: '80%', margin: 'auto' }}
-                    now={step * 100 / pages}
-                    /> */}
-                <p> </p>
+      <div>
+        <Typography variant="h5">{pages} of 5 Pages</Typography>
       </div>
     )
   }
 }
 
-export default Progress;
+export default withRouter(Progress);

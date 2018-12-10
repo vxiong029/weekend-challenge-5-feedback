@@ -17,7 +17,6 @@ class Support extends Component {
         <label>
           Thank You!
           <fieldset className="rating">
-            <legend>Submit:</legend>
               <p>Thank you for your participation. Your feedback means a lot!</p>
             <Button onClick={this.restartClick}>Leave Another Feedback</Button>
           </fieldset>

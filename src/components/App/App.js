@@ -17,7 +17,7 @@ import Support from '../Support/Support';
 import Comments from '../Comments/Comments';
 import Submit from '../Submit/Submit';
 import Review from '../Review/Review';
-// import Progress from '../Progress/Progress';
+import Progress from '../Progress/Progress';
 
 class App extends Component {
   render() {
@@ -35,9 +35,9 @@ class App extends Component {
           <div className="App">
             <Card>
               <Header />
-          {/* <Progress /> */}
               <CardContent>
                 <div className="feedback-form">
+                  <Progress />
                   <Route exact path="/" component={Feeling} />
                   <Route path="/2" component={Understanding}></Route> 
                   <Route path="/3" component={Support}></Route>

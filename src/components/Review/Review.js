@@ -6,7 +6,6 @@ import {withRouter} from 'react-router-dom';
 // Styling imports
 import Button from '@material-ui/core/Button';
 
-
 class Review extends Component {
   // all feedback must be filled
   feedbackComplete = () => {
