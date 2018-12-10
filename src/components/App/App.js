@@ -5,8 +5,6 @@ import 'typeface-roboto';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-// Redux imports
-import {connect} from 'react-redux';
 // Router imports
 import {HashRouter as Router, Route} from 'react-router-dom';
 // Components imports
@@ -52,8 +50,4 @@ class App extends Component {
     );
   }
 }
-// allows us to access REDUX information as props
-const mapStateToProps = reduxStore => ({
-  reduxStore
-})
-export default connect(mapStateToProps)(App);
+export default App;
